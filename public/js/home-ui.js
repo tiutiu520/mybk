@@ -114,22 +114,6 @@
     }, 2500);
   }
 
-  function initHitokoto() {
-    const hitokotoContainer = document.querySelector('#hitokoto')?.parentElement;
-    if (!hitokotoContainer || hitokotoContainer.classList.contains('hidden')) return;
-
-    fetch('https://v1.hitokoto.cn', { signal: AbortSignal.timeout(3000) })
-      .then(res => res.json())
-      .then(data => {
-        const hitokoto = document.getElementById('hitokoto_text');
-        if (hitokoto) {
-          hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`;
-          hitokoto.innerText = data.hitokoto;
-        }
-      })
-      .catch(console.error);
-  }
-
   function initThemeToggle() {
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     if (!themeToggleBtn) return;
@@ -171,7 +155,6 @@
 
     initCopyButtons();
     initBackToTop();
-    initHitokoto();
     initThemeToggle();
   };
 })();
