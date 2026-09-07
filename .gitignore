@@ -4,7 +4,6 @@ Thumbs.db
 
 node_modules/
 .wrangler/
-wrangler.toml
 
 # Husky internal files
 .husky/_
